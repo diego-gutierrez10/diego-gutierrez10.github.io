@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
       langSwitch.addEventListener('click', () => {
           const newLang = currentLang === 'en' ? 'es' : 'en';
           updateContent(newLang);
+          loadProjects(newLang); // Reload projects with new language
           
           // Close mobile menu if open when switching language
           const headerContainer = document.querySelector('header .container');
@@ -255,6 +256,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial language
   updateContent(initialLang);
   
+  // Load and display projects dynamically
+  loadProjects(initialLang);
+  
   // // Mobile menu functionality (Old - Replaced above)
   // const menuToggle = document.querySelector('.menu-toggle');
   // const nav = document.querySelector('nav');
@@ -263,4 +267,93 @@ document.addEventListener('DOMContentLoaded', () => {
   //         nav.classList.toggle('active');
   //     });
   // }
-}); 
+});
+
+// Function to load projects from JSON
+async function loadProjects(lang = 'en') {
+  try {
+    const response = await fetch('projects.json');
+    const projects = await response.json();
+    const projectsGrid = document.getElementById('projectsGrid');
+    
+    if (!projectsGrid) return;
+    
+    // Clear existing content
+    projectsGrid.innerHTML = '';
+    
+    // Create project cards
+    projects.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      
+      // Get localized content
+      const title = project.title[lang] || project.title.en;
+      const category = project.category[lang] || project.category.en;
+      const description = project.description[lang] || project.description.en;
+      
+      // Build technologies badges
+      const techBadges = project.technologies
+        .map(tech => `<span class="tech-badge">${tech}</span>`)
+        .join('');
+      
+      // Build action buttons based on available links
+      let buttons = '';
+      if (project.demo) {
+        // Check if demo is a PDF link
+        const isPdf = project.demo.toLowerCase().endsWith('.pdf');
+        const demoText = isPdf 
+          ? (lang === 'es' ? 'Ver Reporte' : 'View Report')
+          : (lang === 'es' ? 'Ver Demo' : 'View Demo');
+        buttons += `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fas fa-external-link-alt"></i> ${demoText}
+        </a>`;
+      }
+      if (project.github) {
+        buttons += `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <i class="fab fa-github"></i> ${lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}
+        </a>`;
+      }
+      
+      // Build card HTML
+      card.innerHTML = `
+        <img src="${project.image}" alt="${title}" class="project-image" 
+             onerror="this.src='https://via.placeholder.com/600x400/0066cc/ffffff?text=${encodeURIComponent(title)}'">
+        <div class="project-content">
+          <span class="project-category">${category}</span>
+          <h3 class="project-title">${title}</h3>
+          <p class="project-description">${description}</p>
+          <div class="project-technologies">
+            ${techBadges}
+          </div>
+          <div class="project-links">
+            ${buttons}
+          </div>
+        </div>
+      `;
+      
+      projectsGrid.appendChild(card);
+    });
+    
+    // Re-apply hover animations to new cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05)';
+      });
+    });
+    
+  } catch (error) {
+    console.error('Error loading projects:', error);
+    // Fallback content if JSON fails to load
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (projectsGrid) {
+      projectsGrid.innerHTML = '<p style="text-align: center; color: var(--text-light);">Projects coming soon...</p>';
+    }
+  }
+} 

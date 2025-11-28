@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "en": "arXiv Publication Map",
+      "es": "Mapa de Publicaciones arXiv"
+    },
+    "category": {
+      "en": "Data Mining",
+      "es": "Minería de Datos"
+    },
+    "description": {
+      "en": "Interactive visualization of arXiv publications. Explore research papers geographically and discover patterns in scientific publications.",
+      "es": "Visualización interactiva de publicaciones de arXiv. Explora artículos científicos geográficamente y descubre patrones en las publicaciones científicas."
+    },
+    "image": "assets/images/projects/project1.png",
+    "technologies": ["Python", "Folium", "Pandas", "arXiv API"],
+    "github": "https://github.com/diego-gutierrez10/arxiv-publication-map",
+    "demo": "https://diego-gutierrez10.github.io/arxiv-publication-map/",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": {
+      "en": "Economic Freedom & GDP Analysis",
+      "es": "Análisis de Libertad Económica y PIB"
+    },
+    "category": {
+      "en": "Statistical Analysis",
+      "es": "Análisis Estadístico"
+    },
+    "description": {
+      "en": "Multiple linear regression analysis exploring the correlation between the Index of Economic Freedom and GDP PPP per capita across countries.",
+      "es": "Análisis de regresión lineal múltiple que explora la correlación entre el Índice de Libertad Económica y el PIB PPA per cápita de distintos países."
+    },
+    "image": "assets/images/projects/project2.png",
+    "technologies": ["Python", "Pandas", "Statsmodels", "Scikit-learn"],
+    "github": "https://github.com/diego-gutierrez10/economic-freedom-gdp-analysis",
+    "demo": "https://raw.githubusercontent.com/diego-gutierrez10/economic-freedom-gdp-analysis/main/Análisis_de_correlación_del_Index_of_Economic_Freedom_FINAL.pdf",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": {
+      "en": "Flight Delay Prediction",
+      "es": "Predicción de Retrasos en Vuelos"
+    },
+    "category": {
+      "en": "Machine Learning",
+      "es": "Aprendizaje Automático"
+    },
+    "description": {
+      "en": "Supervised machine learning project predicting flight arrival status using 9M records. Evaluated 10 algorithms including Neural Networks, Random Forest, and SVM.",
+      "es": "Proyecto de aprendizaje automático supervisado que predice el estado de llegada de vuelos usando 9M registros. Se evaluaron 10 algoritmos incluyendo Redes Neuronales, Random Forest y SVM."
+    },
+    "image": "assets/images/projects/project3.png",
+    "technologies": ["Python", "scikit-learn", "TensorFlow", "Pandas"],
+    "github": "https://github.com/diego-gutierrez10/flight-delay-prediction",
+    "demo": null,
+    "featured": true
+  }
+]
