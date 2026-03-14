@@ -1136,3 +1136,25 @@ footer p {
 .timeline-content h5 {
     padding-right: 70px;
 }
+
+/* Alineación de cards en Trayectoria */
+#trajectory .column .timeline-item {
+  display: flex;
+}
+
+#trajectory .column .timeline-content {
+  flex: 1;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+#trajectory .column .timeline-content p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  #trajectory .column .timeline-content {
+    min-height: auto;
+  }
+}

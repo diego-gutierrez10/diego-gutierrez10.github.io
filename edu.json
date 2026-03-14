@@ -1,5 +1,11 @@
 [
     {
+        "school": "Johannes Kepler University Linz",
+        "school_location": "Linz, Austria",
+        "degree": "Exchange Student $\\cdot$ Master in Artificial Intelligence",
+        "time_period": "Oct 2025 - Feb 2026"
+    },
+    {
         "school": "Universidad Autónoma de Baja California, Ensenada",
         "school_location": "Ensenada, México",
         "degree": "Bachelor of Data Science",

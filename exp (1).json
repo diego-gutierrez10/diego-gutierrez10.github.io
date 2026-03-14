@@ -1,5 +1,22 @@
 [
     {
+        "company": "SEMPRA Infrastructure - Energy",
+        "company_location": "Ensenada, MX",
+        "role": "Data Analyst Intern",
+        "team": "Analytics",
+        "time_duration": "Feb 2026 - Present",
+        "details": [
+            {
+                "title": "Personnel Turnover Dashboard",
+                "description": "Designed and deployed Power BI dashboards integrating multiple enterprise data sources to surface actionable insights on personnel turnover patterns, supporting data-driven decision-making for HR leadership."
+            },
+            {
+                "title": "Automated Reporting \\& ETL Pipelines",
+                "description": "Engineered data transformation and integration pipelines across diverse internal data sources and built automated reporting workflows, delivering consistent scheduled outputs to stakeholders and reducing manual overhead."
+            }
+        ]
+    },
+    {
         "company": "Smartlands - Real Estate",
         "company_location": "Ensenada, MX",
         "role": "Sales Automation Manager",
